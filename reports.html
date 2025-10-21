@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<header class="container-fluid bg" style="background-image: url('Group18.png'); background-size: cover; background-position: center;">
+
+ <nav class="navbar navbar-expand-lg mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white fw-semibold">
+      <img src="Shield.png" width="50" height="44" class="d-inline-block align-text-center pb-1 mb-2">iClinic</a>
+
+      <div class="collapse navbar-collapse justify-content-center" >
+        <ul class="navbar-nav gap-4">
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="dashbordmain.html"><img src="dboard.png">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="stdnt_rec.html"><img src="Srec.png"> Student Record</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3 active" href="#"><img src="rep.png"> Reports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="medinv.html"><img src="med.png"> Medicine Inventory</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="d-flex ms-auto">
+        <a class="btn btn-outline-primary text-white mb-4" href="sign.html">Log out <img src="out.png"></a>
+      </div>
+  </div>
+</nav>
+</header>
+
+  <style>
+    .nav-link {
+      color: white !important;
+    }
+
+    .nav-link.active {
+      background-color: #fff;
+      color: #285430 !important;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-weight: 500;
+      margin-bottom: -1px;
+      padding-bottom: 15px !important;
+
+    }
+    .nav-link.active img {
+      filter: brightness(0) invert(0); /* makes image black */
+    }
+  </style>
+
+<body>
+
+    <div class="container mx-6 mb-4 d-flex justify-content-between align-items-end">
+        <div>
+            <h3>Reports & Analytics</h3>
+            <h6>Comprehensive health and visit statistics</h6>
+        </div>
+            <button id="import" class="btn btn-dark text-white">Export</button>
+    </div>
+
+        <style>
+      .border{
+        min-height: 110px;
+        border-radius: 10px;
+      }
+
+      .con-tabol{
+        display:none ;
+      }
+
+    </style>
+
+
+  <div class="container mt-4 mb-4">
+    <div class="row g-5">
+
+      <div class="col-md-4">
+        <div class="border border-1 border-dark p-3 d-flex justify-content-between align-items-center">
+          <div>
+            <p class="mb-1 text-muted">Total Visits</p>
+            <h4 class="mb-0 fw-bold">0</h4>
+            <p class="mb-0 text-muted">From last month</p>
+          </div>
+          <div>
+            <img src="Student.png" width="50" height="50" class="d-inline-block">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="border border-1 border-dark p-3 d-flex justify-content-between align-items-center">
+          <div>
+            <p class="mb-1 text-muted">Unique Students</p>
+            <h4 class="mb-0 fw-bold">0</h4>
+            <p class="mb-0 text-muted">From last month</p>
+          </div>
+          <div>
+            <img src="greencal.png" width="50" height="50" class="d-inline-block">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="border border-1 border-dark p-3 d-flex justify-content-between align-items-center">
+          <div>
+            <p class="mb-1 text-muted">Avg Visits/Day</p>
+            <h4 class="mb-0 fw-bold">200</h4>
+            <p class="mb-0 text-muted">from last month</p>
+          </div>
+          <div>
+            <img src="porpolbox.png" width="55" height="55" class="d-inline-block">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    
+</body>
+</html>

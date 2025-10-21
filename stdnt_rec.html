@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<header class="container-fluid bg" style="background-image: url('Group18.png'); background-size: cover; background-position: center;">
+
+ <nav class="navbar navbar-expand-lg mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white fw-semibold">
+      <img src="Shield.png" width="50" height="44" class="d-inline-block align-text-center pb-1 mb-2">iClinic</a>
+
+      <div class="collapse navbar-collapse justify-content-center" >
+        <ul class="navbar-nav gap-4">
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="dashbordmain.html"><img src="dboard.png">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3 active" href="#"><img src="Srec.png"> Student Record</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="reports.html"><img src="rep.png"> Reports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="medinv.html"><img src="med.png"> Medicine Inventory</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="d-flex ms-auto">
+        <a class="btn btn-outline-primary text-white mb-4" href="sign.html">Log out <img src="out.png"></a>
+      </div>
+  </div>
+</nav>
+</header>  
+
+  <style>
+    .nav-link {
+      color: white !important;
+    }
+
+    
+    .nav-link.active {
+      background-color: #fff;
+      color: #285430 !important;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-weight: 500;
+      margin-bottom: -1px;
+      padding-bottom: 15px !important;
+
+    }
+    .nav-link.active img {
+      filter: brightness(0) invert(0); /* makes image black */
+    }
+  </style>
+
+<body>
+
+    <div class="container mx-6 mb-4 d-flex justify-content-between align-items-end">
+        <div>
+            <h3>Student Records</h3>
+            <h6>Manage Student Information</h6>
+        </div>
+            <button id="addBtn" class="btn btn-dark text-white" style="background: #5F8D4E;">+ Add Record</button>
+    </div>
+
+    <div class="container border border-1 border-dark border-radius-2" style="border-radius: 20px;">
+    <form class="d-flex mt-3 mb-3" role="search">
+            <input class="form-control mx-5" type="search" placeholder="Search by name, LRN..." aria-label="Search"/>
+            <select class="form-select w-25" aria-label="Default select">
+                <option selected>ALL CATEGORIES</option>
+                <option value="1">pangi</option>
+                <option value="2">unggoy </option>
+                <option value="3">celestial </option>
+            </select>
+        </form>
+    </div>
+
+        <!-- records -->
+        <div class="container text-center mt-5">
+            <table class="table border border-1 border-dark">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>LRN</th>
+                        <th>Grade & Section</th>
+                        <th>Date & Time</th>
+                        <th>Reason Of Visits</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>123453535(nodatabes)</td>
+                        <td>jun junakes</td>
+                        <td>Grade 5-makata</td>
+                        <td>
+                            <div>2025-10-15</div>
+                            <small class="text-muted">10:30 AM</small>
+                        </td>
+                        <td>
+                          <div class="fw-semibold">Headache</div>
+                          <div>Severe headache, dizziness</div>
+                       </td>
+
+                        <td>
+                            <div class="action-box d-flex justify-content-center">
+                                <a href=".php?id=1" class="table-edit-btn btn"><img src="Edit.png"></a>
+                                <a href=".php?id=1" class="table-view-btn btn"><img src="view.png"></a>
+                                <a href=".php?id=1" class="table-delete-btn btn" onclick="return confirm('Do you want to DELETE this?')"><img src="Trash.png"></a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    <style>
+      .rec-form {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000; 
+        justify-content: center;
+        align-items: center;
+      }
+
+      label.form-label {
+        font-weight: 600;
+      }
+    </style>
+
+
+        <div class="rec-form pt-5" id="Record-form">
+            <div class="container d-flex justify-content-center align-items-center" >
+                <div class="card p-4 shadow" style="width: 60rem;">
+                    <h5 class="mb-3 bg-secondary text-white p-3 border-bottom border-dark">Add New Record</h5>
+
+                    <form>
+                      <div class="row mb-3">
+                        <div class="col-md-4">
+                          <label for="Name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="name" placeholder="Enter full name">
+                        </div>
+                        <div class="col-md-4">
+                          <label for="Grade" class="form-label">Grade & Section</label>
+                          <input type="text" class="form-control" id="grade" placeholder="(eg. Grade 10-A)">
+                        </div>
+                        <div class="col-md-4">
+                          <label for="Lrn" class="form-label">LRN</label>
+                          <input type="number" class="form-control" id="lrn">
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-4">
+                          <label for="Date" class="form-label">Date</label>
+                          <input type="date" class="form-control" id="date">
+                        </div>
+                        <div class="col-md-4">
+                          <label for="Time" class="form-label">Time</label>
+                          <input type="time" class="form-control" id="time">
+                        </div>
+                      </div>
+                      <!---auto date/time---->
+                      <script>
+                        window.addEventListener('load', function() {
+                          const dateInput = document.getElementById('date');
+                          const timeInput = document.getElementById('time');
+
+                          // Get the current date and time
+                          const now = new Date();
+
+                          // Format date as YYYY-MM-DD
+                          const date = now.toISOString().split('T')[0];
+
+                          // Format time as HH:MM (24-hour format)
+                          const time = now.toTimeString().slice(0, 5);
+
+                          // Set the input values
+                          dateInput.value = date;
+                          timeInput.value = time;
+                        });
+                      </script>
+                      
+                      <div class="row mb-3">
+                        <div class="col-md-5">
+                          <label for="EmergencyName" class="form-label">Emergency Contact Name</label>
+                          <input type="text" class="form-control" id="emergencyName" placeholder="Enter contact name">
+                        </div>
+                        <div class="col-md-5">
+                          <label for="EmergencyNumber" class="form-label">Emergency Contact No.</label>
+                          <input type="tel" class="form-control" id="emergencyNumber" placeholder="Enter phone number">
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-5">
+                          <label for="Allergies" class="form-label">Allergies</label>
+                          <input type="text" class="form-control" id="allergies" placeholder="List allergies if any">
+                        </div>
+                        <div class="col-md-5">
+                          <label for="HealthIssues" class="form-label">Current Health Issues</label>
+                          <input type="text" class="form-control" id="healthIssues" placeholder="List health issues if any">
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-5">
+                          <label for="Reason" class="form-label">Reason of Visits</label>
+                          <textarea class="form-control" id="reason" rows="2"></textarea>
+                        </div>
+                        <div class="col-md-5">
+                          <label for="Symptoms" class="form-label">Symptoms</label>
+                          <textarea class="form-control" id="symptoms" rows="2"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <div class="col-md-5">
+                          <label for="Treatment" class="form-label">Treatment Given</label>
+                          <textarea class="form-control" id="treatment" rows="2"></textarea>
+                        </div>
+                        <div class="col-md-5">
+                          <label for="Recommendation" class="form-label">Recommendation</label>
+                          <textarea class="form-control" id="recommendation" rows="2"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-end mt-4">
+                        <button type="button" id="cancelBtn" class="btn btn-secondary me-3">Cancel</button>
+                        <button type="submit" class="btn btn-dark">Add Record</button>
+                      </div>
+          
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+          const importBtn = document.getElementById('addBtn');
+          const cancelBtn = document.getElementById('cancelBtn');
+          const formContainer = document.getElementById('Record-form');
+
+          // Show form when Import button is clicked
+          addBtn.addEventListener('click', () => {
+            formContainer.style.display = 'block';
+          });
+
+          // Hide form when Cancel is clicked
+          cancelBtn.addEventListener('click', () => {
+            formContainer.style.display = 'none';
+            addBtn.style.display = 'inline-block';
+          });
+        </script>
+
+    
+</body>
+</html>
